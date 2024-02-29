@@ -8,17 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		9132AD712B8E1798008DF205 /* EStore_SwiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD702B8E1798008DF205 /* EStore_SwiftuiApp.swift */; };
-		9132AD732B8E1798008DF205 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD722B8E1798008DF205 /* ContentView.swift */; };
+		9132AD732B8E1798008DF205 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD722B8E1798008DF205 /* RegisterView.swift */; };
 		9132AD752B8E1799008DF205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9132AD742B8E1799008DF205 /* Assets.xcassets */; };
 		9132AD782B8E1799008DF205 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9132AD772B8E1799008DF205 /* Preview Assets.xcassets */; };
+		9132AD862B8E1828008DF205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD852B8E1828008DF205 /* User.swift */; };
+		9132AD892B8E19B4008DF205 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD882B8E19B4008DF205 /* Constant.swift */; };
+		9132AD8E2B8E1B8A008DF205 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD8D2B8E1B8A008DF205 /* AuthService.swift */; };
+		9132AD902B8E1E8A008DF205 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD8F2B8E1E8A008DF205 /* AuthViewModel.swift */; };
+		9132AD942B8E2720008DF205 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD932B8E2720008DF205 /* APIServices.swift */; };
+		9132AD962B8E2813008DF205 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD952B8E2813008DF205 /* UsersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9132AD6D2B8E1798008DF205 /* EStore_Swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EStore_Swiftui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9132AD702B8E1798008DF205 /* EStore_SwiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EStore_SwiftuiApp.swift; sourceTree = "<group>"; };
-		9132AD722B8E1798008DF205 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9132AD722B8E1798008DF205 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		9132AD742B8E1799008DF205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9132AD772B8E1799008DF205 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9132AD852B8E1828008DF205 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9132AD882B8E19B4008DF205 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		9132AD8D2B8E1B8A008DF205 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9132AD8F2B8E1E8A008DF205 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		9132AD932B8E2720008DF205 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		9132AD952B8E2813008DF205 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +63,11 @@
 		9132AD6F2B8E1798008DF205 /* EStore_Swiftui */ = {
 			isa = PBXGroup;
 			children = (
+				9132AD8A2B8E1B57008DF205 /* Services */,
+				9132AD872B8E19A8008DF205 /* Helper */,
+				9132AD7E2B8E17BA008DF205 /* Modules */,
+				9132AD842B8E180A008DF205 /* Resources */,
 				9132AD702B8E1798008DF205 /* EStore_SwiftuiApp.swift */,
-				9132AD722B8E1798008DF205 /* ContentView.swift */,
 				9132AD742B8E1799008DF205 /* Assets.xcassets */,
 				9132AD762B8E1799008DF205 /* Preview Content */,
 			);
@@ -65,6 +80,89 @@
 				9132AD772B8E1799008DF205 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9132AD7E2B8E17BA008DF205 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD7F2B8E17C8008DF205 /* Users */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9132AD7F2B8E17C8008DF205 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD832B8E17F5008DF205 /* ViewModel */,
+				9132AD822B8E17EC008DF205 /* Model */,
+				9132AD812B8E17E4008DF205 /* View */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		9132AD812B8E17E4008DF205 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD722B8E1798008DF205 /* RegisterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9132AD822B8E17EC008DF205 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD852B8E1828008DF205 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9132AD832B8E17F5008DF205 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD8F2B8E1E8A008DF205 /* AuthViewModel.swift */,
+				9132AD952B8E2813008DF205 /* UsersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9132AD842B8E180A008DF205 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9132AD872B8E19A8008DF205 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD882B8E19B4008DF205 /* Constant.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9132AD8A2B8E1B57008DF205 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD912B8E26FA008DF205 /* API */,
+				9132AD8C2B8E1B6C008DF205 /* Auth */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9132AD8C2B8E1B6C008DF205 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD8D2B8E1B8A008DF205 /* AuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9132AD912B8E26FA008DF205 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9132AD932B8E2720008DF205 /* APIServices.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +235,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9132AD732B8E1798008DF205 /* ContentView.swift in Sources */,
+				9132AD732B8E1798008DF205 /* RegisterView.swift in Sources */,
 				9132AD712B8E1798008DF205 /* EStore_SwiftuiApp.swift in Sources */,
+				9132AD902B8E1E8A008DF205 /* AuthViewModel.swift in Sources */,
+				9132AD8E2B8E1B8A008DF205 /* AuthService.swift in Sources */,
+				9132AD862B8E1828008DF205 /* User.swift in Sources */,
+				9132AD962B8E2813008DF205 /* UsersViewModel.swift in Sources */,
+				9132AD942B8E2720008DF205 /* APIServices.swift in Sources */,
+				9132AD892B8E19B4008DF205 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
