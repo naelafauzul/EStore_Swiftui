@@ -16,6 +16,8 @@
 		910E6F7E2B931E6F0024189F /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E6F7D2B931E6F0024189F /* ProductListView.swift */; };
 		910E6F802B933DDF0024189F /* CreateProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E6F7F2B933DDF0024189F /* CreateProduct.swift */; };
 		910E6F822B9342400024189F /* AddProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E6F812B9342400024189F /* AddProduct.swift */; };
+		910E6F842B9349FE0024189F /* PhotoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E6F832B9349FE0024189F /* PhotoSource.swift */; };
+		910E6F862B934BB30024189F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E6F852B934BB30024189F /* ImagePicker.swift */; };
 		9132AD712B8E1798008DF205 /* EStore_SwiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD702B8E1798008DF205 /* EStore_SwiftuiApp.swift */; };
 		9132AD732B8E1798008DF205 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9132AD722B8E1798008DF205 /* RegisterView.swift */; };
 		9132AD752B8E1799008DF205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9132AD742B8E1799008DF205 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		910E6F7D2B931E6F0024189F /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		910E6F7F2B933DDF0024189F /* CreateProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProduct.swift; sourceTree = "<group>"; };
 		910E6F812B9342400024189F /* AddProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProduct.swift; sourceTree = "<group>"; };
+		910E6F832B9349FE0024189F /* PhotoSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSource.swift; sourceTree = "<group>"; };
+		910E6F852B934BB30024189F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		9132AD6D2B8E1798008DF205 /* EStore_Swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EStore_Swiftui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9132AD702B8E1798008DF205 /* EStore_SwiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EStore_SwiftuiApp.swift; sourceTree = "<group>"; };
 		9132AD722B8E1798008DF205 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 				9132AD882B8E19B4008DF205 /* Constant.swift */,
 				916F88552B908861001CD0F2 /* ErrorMessage.swift */,
 				910E6F752B93164D0024189F /* NetworkService.swift */,
+				910E6F832B9349FE0024189F /* PhotoSource.swift */,
+				910E6F852B934BB30024189F /* ImagePicker.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -334,9 +340,11 @@
 				9132AD8E2B8E1B8A008DF205 /* AuthService.swift in Sources */,
 				910E6F802B933DDF0024189F /* CreateProduct.swift in Sources */,
 				916F88562B908861001CD0F2 /* ErrorMessage.swift in Sources */,
+				910E6F862B934BB30024189F /* ImagePicker.swift in Sources */,
 				910E6F7E2B931E6F0024189F /* ProductListView.swift in Sources */,
 				910E6F7C2B931B8E0024189F /* ProductRowView.swift in Sources */,
 				9132AD862B8E1828008DF205 /* User.swift in Sources */,
+				910E6F842B9349FE0024189F /* PhotoSource.swift in Sources */,
 				916F88592B908A7E001CD0F2 /* UserRowView.swift in Sources */,
 				910E6F742B9313410024189F /* ProductAPIService.swift in Sources */,
 				9132AD962B8E2813008DF205 /* UsersViewModel.swift in Sources */,
@@ -483,6 +491,8 @@
 				DEVELOPMENT_TEAM = ZN33ZJFC65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "App need to access your camera to tke a photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "App need to access your gallery to pick a photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -512,6 +522,8 @@
 				DEVELOPMENT_TEAM = ZN33ZJFC65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "App need to access your camera to tke a photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "App need to access your gallery to pick a photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
