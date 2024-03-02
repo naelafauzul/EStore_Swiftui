@@ -31,7 +31,7 @@ class AuthViewModel: ObservableObject {
                             }
                         """
             print(successRegister)
-            self.message = "User successfully registered with ID: \(userID ?? 0)"
+            self.message = "User successfully registered with ID: \(userID )"
             self.registrationSucess = true
             
         } catch {

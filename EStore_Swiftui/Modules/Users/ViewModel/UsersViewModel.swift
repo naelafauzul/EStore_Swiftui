@@ -8,7 +8,25 @@
 import Foundation
 
 @MainActor
-Class UsersViewModel: ObservableObject {
+class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
     @Published var isLoading = false
+    @Published var errorMessages: String?
+    
+    private let service = UserAPIService()
+    
+    func loadUsers() async {
+        isLoading = true
+        
+        do {
+            let loadedUsers = try await service.fetchUsers()
+            self.users = loadedUsers.reversed()
+        } catch {
+            let message = ErrorMessage.message(for: error)
+            print("Could not load users data: \(message) because of \(error.localizedDescription)")
+            isLoading = false
+        }
+    }
+    
+    
 }
