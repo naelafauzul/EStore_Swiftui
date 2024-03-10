@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import Alamofire
 
 class ProductAPIService {
     static let shared = ProductAPIService()
@@ -48,4 +50,38 @@ extension ProductAPIService {
         return createdProduct
     }
 }
+
+//UPLOAD IMAGE
+extension ProductAPIService {
+    func uploadImage(image: UIImage) async throws -> String {
+        guard let url = Constant.Endpoint.uploadFile.fullURLEndpoint() else {
+            throw URLError(.badURL)
+        }
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            throw ImageError.conversionFailed
+        }
+        
+        //ALAMOFIRE untuk upload image
+        let data = try await withCheckedThrowingContinuation { continuation in
+            AF.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(imageData, withName: "file", fileName: "image.jpg", mimeType: "image/jpeg")
+            }, to: url)
+            .validate()
+            .responseDecodable(of: UploadResponse.self) { response in
+                switch response.result {
+                case .success(let uploadResponse):
+                    continuation.resume(returning: uploadResponse.location)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+        
+        return data
+    }
+}
+
+
+
 
