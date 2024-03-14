@@ -18,17 +18,19 @@ struct ProductListView: View {
                     ContentUnavailableView("No Products yet", systemImage: "cart.badge.questionmark", description: Text("Try checking another products, or you can comeback later."))
                 } else {
                     List(productVM.products) { item in
-                        // ProductRowView(product: item)
-                        TempProductRow(product: item)
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    Task {
-                                        await productVM.deleteProduct(withId: item.id)
+                        NavigationLink (destination: DetailProductView(product: item)) {
+                            TempProductRow(product: item)
+                                .swipeActions {
+                                    Button(role: .destructive) {
+                                        Task {
+                                            await productVM.deleteProduct(withId: item.id)
+                                        }
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
                                     }
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
                                 }
-                            }
+                        }
+                        
                     }
                 }
             }
@@ -44,8 +46,8 @@ struct ProductListView: View {
 }
 
 #Preview {
-//    let vm = ProductVM()
-//    vm.products = Product.dummy
+    //    let vm = ProductVM()
+    //    vm.products = Product.dummy
     
-    ProductListView(categoryId: 5)
+    ProductListView(categoryId: 2)
 }

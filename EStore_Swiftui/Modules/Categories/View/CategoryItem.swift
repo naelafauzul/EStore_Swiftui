@@ -12,7 +12,6 @@ struct CategoryItem: View {
     
     var body: some View {
         VStack {
-            // Using ImageUtility to extract the URL
             if let imageUrl = ImageUtility.extractImageUrl(from: category.image) {
                 AsyncImage(url: imageUrl) { image in
                     image.resizable()
