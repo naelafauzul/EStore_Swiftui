@@ -4,19 +4,69 @@
 //
 //  Created by Naela Fauzul Muna on 02/03/24.
 //
-
 import Foundation
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+    case patch = "PATCH"
+}
 
 enum NetworkError: Error {
     case badURLResponse(url: URL)
     case unknown(HTTPURLResponse?)
+    case unauthorized(message: String, statusCode: Int)
 }
 
+//class NetworkService {
+//    static let shared = NetworkService()
+//
+//    private init() {}
+//
+//    // MARK: - POST
+//    func postData(with request: URLRequest) async throws -> Data {
+//        let (data, response) = try await URLSession.shared.data(for: request)
+//
+//        guard let httpResponse = response as? HTTPURLResponse else {
+//            throw NetworkError.badURLResponse(url: request.url!)
+//        }
+//
+//        guard (200...299).contains(httpResponse.statusCode) else {
+//            throw NetworkError.unknown(httpResponse)
+//        }
+//
+//        guard (400...499).contains(httpResponse.statusCode) else {
+//            throw NetworkError.unknown(httpResponse)
+//        }
+//
+//        return data
+//    }
+//
+//    // MARK: - GET
+//    func fetchData(from url: URL) async throws -> Data {
+//        let (data, response) = try await URLSession.shared.data(from: url)
+//
+//        guard let httpResponse = response as? HTTPURLResponse else {
+//            throw NetworkError.badURLResponse(url: url)
+//        }
+//
+//        guard (200...299).contains(httpResponse.statusCode) else {
+//            throw NetworkError.unknown(httpResponse)
+//        }
+//
+//        return data
+//    }
+//}
+
+// handle error 401
 class NetworkService {
     static let shared = NetworkService()
+    
     private init() {}
     
-    //POST
+    // MARK: - POST
     func postData(with request: URLRequest) async throws -> Data {
         let (data, response) = try await URLSession.shared.data(for: request)
         
@@ -24,14 +74,18 @@ class NetworkService {
             throw NetworkError.badURLResponse(url: request.url!)
         }
         
-        guard (200...299).contains(httpResponse.statusCode) else {
+        if httpResponse.statusCode == 401, let responseBody = try? JSONDecoder().decode(ServerErrorResponse.self, from: data) {
+            // Jika status code adalah 401 (Unauthorized), lempar error unauthorized dengan pesan dari server
+            throw NetworkError.unauthorized(message: responseBody.message, statusCode: httpResponse.statusCode)
+        } else if !(200...299).contains(httpResponse.statusCode) {
+            // Untuk status code selain 200-299, lempar error unknown
             throw NetworkError.unknown(httpResponse)
         }
         
         return data
     }
     
-    //GET
+    // MARK: - GET
     func fetchData(from url: URL) async throws -> Data {
         let (data, response) = try await URLSession.shared.data(from: url)
         
@@ -39,11 +93,12 @@ class NetworkService {
             throw NetworkError.badURLResponse(url: url)
         }
         
-        guard (200...299).contains(httpResponse.statusCode) else {
+        if httpResponse.statusCode == 401, let responseBody = try? JSONDecoder().decode(ServerErrorResponse.self, from: data) {
+            throw NetworkError.unauthorized(message: responseBody.message, statusCode: httpResponse.statusCode)
+        } else if !(200...299).contains(httpResponse.statusCode) {
             throw NetworkError.unknown(httpResponse)
         }
         
         return data
     }
-     
 }
